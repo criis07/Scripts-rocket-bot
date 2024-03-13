@@ -12,6 +12,10 @@ var_rocket2 = '{url_titulos}'
 url2 = 'https://scrapingclub.com/exercise/list_basic/?page=1' if var_rocket2 else ''
 
 response = requests.get(url2)
+
+SetVar('datosbd', response)
+
+
 soup = BeautifulSoup(response.text, 'html.parser')
 posts = soup.find_all('div', class_='w-full rounded border')
 
