@@ -30,7 +30,7 @@ for post in posts:
             # Obtener el texto dentro de la etiqueta <a>
             link_text = a_tag.text.strip()
 
-            # Incrementar el contador de enlaces impresos
+            # Incrementar el contador 
             elementos += 1
 
             # Si se ha alcanzado el límite del bucle, salir del bucle
@@ -41,8 +41,12 @@ for post in posts:
 
 # Actualizar los títulos de formatted_json
 for i, item in enumerate(formatted_json):
-    # Verificar si hay elementos en el array de títulos
+# Verificar si hay elementos en el array de títulos
     if i < len(array):
         item['title'] = array[i]
+        item['body'] = formatted_json[i]['body'].replace("\n", " ")
+        
+formatted_json = [[dic[key] for key in dic] for dic in formatted_json]
+formatted_json.insert(0, ['userId', 'id','title','body'])       
 
 SetVar('titulos_reemplazados', formatted_json)
