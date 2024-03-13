@@ -13,7 +13,7 @@ url2 = 'https://scrapingclub.com/exercise/list_basic/?page=1' if var_rocket2 els
 
 response = requests.get(url2)
 
-SetVar('datosbd', response)
+SetVar('datosbd', formatted_json)
 
 
 soup = BeautifulSoup(response.text, 'html.parser')
